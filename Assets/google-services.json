@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "801251372085",
+    "firebase_url": "https://farm-ebc46-default-rtdb.asia-southeast1.firebasedatabase.app",
+    "project_id": "farm-ebc46",
+    "storage_bucket": "farm-ebc46.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:801251372085:android:4b75d4fc44dd7fe437157c",
+        "android_client_info": {
+          "package_name": "farm.lamgame2d"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCP_A-8sF1CuKKp8DKX2yiiO7M-1jKGUYo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
