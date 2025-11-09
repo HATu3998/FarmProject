@@ -58,4 +58,13 @@ public class RecyclableInventoryManager : MonoBehaviour, IRecyclableScrollRectDa
     {
         _invenItems  = lst;
     }
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.L))
+        {
+            InvenItems invenitemDemo = new InvenItems("Ca", "Ca");
+            _invenItems.Add(invenitemDemo);
+            _recyclableScrollRect.ReloadData();
+        }
+    }
 }
