@@ -15,13 +15,11 @@ public class FireBaseDatabaseManager : MonoBehaviour
     }
     private void Start()
     {
-        TilemapDetail tilemapDetail = new TilemapDetail(1, 1, TilemapState.Ground);
-        writeDatabase("123", tilemapDetail.ToString());
-        readDatabase("123");
+       
     }
     public void writeDatabase(string id, string message)
     {
-        reference.Child("User").Child(id).SetValueAsync(message).ContinueWithOnMainThread(task
+        reference.Child("Users").Child(id).SetValueAsync(message).ContinueWithOnMainThread(task
             =>
         {
             if (task.IsCompleted)
@@ -36,7 +34,7 @@ public class FireBaseDatabaseManager : MonoBehaviour
     }
     public void readDatabase(string id)
     {
-        reference.Child("User").Child(id).GetValueAsync().ContinueWithOnMainThread(task =>
+        reference.Child("Users").Child(id).GetValueAsync().ContinueWithOnMainThread(task =>
             {
                 if (task.IsCompleted)
                 {

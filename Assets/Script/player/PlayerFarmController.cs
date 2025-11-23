@@ -12,6 +12,7 @@ public class PlayerFarmController : MonoBehaviour
     public TileBase tbGrass;
     public TileBase tbForest;
 
+    public TilemapManager tileMapManager;
     private RecyclableInventoryManager recyclableInventoryManager;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -38,7 +39,12 @@ public class PlayerFarmController : MonoBehaviour
             if(tmGrass.HasTile(cellPos))
             {
                 tmGrass.SetTile(cellPos, null);
-             
+                
+                if (tbGround != null)
+                {
+                    tmGround.SetTile(cellPos, tbGround);
+                }
+                tileMapManager.SetStateForTilemapDetail(cellPos.x, cellPos.y, TilemapState.Ground);
             } 
         }
         if (Input.GetKeyDown(KeyCode.V))
@@ -49,6 +55,7 @@ public class PlayerFarmController : MonoBehaviour
             if(crrTileBase== null)
             {
                 tmForest.SetTile(cellPos, tbForest);
+                tileMapManager.SetStateForTilemapDetail(cellPos.x, cellPos.y, TilemapState.Forest);
             }
         }
         if (Input.GetKeyDown(KeyCode.F))
@@ -60,6 +67,8 @@ public class PlayerFarmController : MonoBehaviour
             {
                 tmGrass.SetTile(cellPos, tbGrass);
                 tmForest.SetTile(cellPos, null);
+
+                tileMapManager.SetStateForTilemapDetail(cellPos.x, cellPos.y, TilemapState.Grass);
 
                 InvenItems itemFlower = new InvenItems();
                 itemFlower.name = "hoa 1h";
