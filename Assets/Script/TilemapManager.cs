@@ -82,7 +82,10 @@ public class TilemapManager : MonoBehaviour
         }
         map = new Map(tileMaps);
         Debug.Log(map.ToString());
-        databaseManager.writeDatabase(user.UserId +"/Map", map.ToString());
+
+        LoadDataManager.userInGame.MapInGame = map;
+
+        databaseManager.writeDatabase("Users/"+LoadDataManager.firebaseUser.UserId, LoadDataManager.userInGame.ToString());
     }
 
     public void loadMapForUser()

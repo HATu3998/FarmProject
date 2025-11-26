@@ -92,8 +92,8 @@ public class FireBaseLoginManager : MonoBehaviour
                 Debug.Log("dang ky thanh cong");
                 FirebaseUser firebaseUser = task.Result.User;
                 databaseManager.writeDatabase("Users/" + firebaseUser.UserId, userInGame.ToString());
-                SceneManager.LoadScene("LoginScene");
-                 
+                //  SceneManager.LoadScene("LoginScene");
+                SceneManager.LoadScene("LoadingScene");
             }
         });
     }
@@ -129,7 +129,8 @@ public class FireBaseLoginManager : MonoBehaviour
             {
                 Debug.Log("dang nhap thanh cong");
                 FirebaseUser user = task.Result.User;
-                SceneManager.LoadScene("SampleScene");
+                // SceneManager.LoadScene("SampleScene");
+                SceneManager.LoadScene("LoadingScene");
             }
 
 
