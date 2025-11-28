@@ -9,7 +9,7 @@ public class LoadDataManager : MonoBehaviour
 {
     public static FirebaseUser firebaseUser;
     public static User userInGame;
-
+    public static bool IsUserLoaded { get; private set; }
     private DatabaseReference reference;
     private void Awake()
     {
@@ -37,15 +37,20 @@ public class LoadDataManager : MonoBehaviour
     {
         reference.Child("Users").Child(firebaseUser.UserId).GetValueAsync().ContinueWithOnMainThread(task =>
         {
+            if (task.IsCanceled || task.IsFaulted)
+            {
+                Debug.LogError("doc du lieu that bai " + task.Exception);
+                IsUserLoaded = false;
+                return;
+            }
+
             if (task.IsCompleted)
             {
                 DataSnapshot snapshot = task.Result;
                 userInGame = JsonConvert.DeserializeObject<User>(snapshot.Value.ToString());
+                IsUserLoaded = true;
             }
-            else
-            {
-                Debug.Log("doc du lieu that bai" + task.Exception);
-            }
+          
         });
     }
 }
