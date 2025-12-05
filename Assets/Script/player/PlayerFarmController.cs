@@ -14,11 +14,13 @@ public class PlayerFarmController : MonoBehaviour
 
     public TilemapManager tileMapManager;
     private RecyclableInventoryManager recyclableInventoryManager;
+    
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         recyclableInventoryManager = GameObject.Find("InventoryManager").GetComponent<RecyclableInventoryManager>();
 
+       
     }
 
     // Update is called once per frame
